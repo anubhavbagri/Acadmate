@@ -45,7 +45,7 @@ function Features() {
                       Question Papers
                     </div>
                     <div className="text-gray-600">
-                      Find previous years question papers easily and quickly.
+                      Find previous years' question papers easily and quickly.
                     </div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow flex-shrink-0 ml-3">
