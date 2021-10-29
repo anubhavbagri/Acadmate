@@ -24,7 +24,7 @@ function HeroHome() {
       })
       .catch((e) => {
         console.log(e, "error");
-        setLoader((prevState) => ({ ...prevState, githubLoading: false }));
+        setLoader((prevState) => ({ ...prevState, microsoftLoading: false }));
       });
   };
 
