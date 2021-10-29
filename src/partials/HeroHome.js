@@ -1,7 +1,33 @@
 import React, { useState } from "react";
 import { Link } from "react-scroll";
+import app from "../utils/firebase-config";
+import firebase from "firebase";
 
 function HeroHome() {
+  const [loader, setLoader] = React.useState({
+    microsoftLoading: false,
+  });
+  const [error, setError] = React.useState({
+    message: "",
+    open: false,
+  });
+
+  const handleMicrosoftLogin = () => {
+    setLoader((prevState) => ({ ...prevState, microsoftLoading: true }));
+    const provider = new firebase.auth.OAuthProvider("microsoft.com");
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then((data) => {
+        console.log(data);
+        setLoader((prevState) => ({ ...prevState, microsoftLoading: false }));
+      })
+      .catch((e) => {
+        console.log(e, "error");
+        setLoader((prevState) => ({ ...prevState, githubLoading: false }));
+      });
+  };
+
   return (
     <section className="relative">
       {/* Illustration behind hero content */}
@@ -68,7 +94,8 @@ function HeroHome() {
                 <div>
                   <a
                     className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
-                    href="#0"
+                    onClick={() => handleMicrosoftLogin()}
+                    style={{ cursor: "pointer" }}
                   >
                     Login with Microsoft
                   </a>
@@ -78,8 +105,8 @@ function HeroHome() {
                     to="feat"
                     spy={true}
                     smooth={true}
+                    style={{ cursor: "pointer" }}
                     className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4"
-                    href="#0"
                   >
                     Learn more
                   </Link>
