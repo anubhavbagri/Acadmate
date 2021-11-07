@@ -11,7 +11,7 @@ function HeroHome() {
     message: "",
     open: false,
   });
-
+  //We are creating a provider using the firebase auth method for MicrosoftAuthProvider followed by creating a firebase auth method using signInWithPopup which accepts the provider as an argument and handle the authentication part for us. The signInWithPopup method returns a promise and we can finally get all the user credentials after handling our promise using .then and .catch methods.
   const handleMicrosoftLogin = () => {
     setLoader((prevState) => ({ ...prevState, microsoftLoading: true }));
     const provider = new firebase.auth.OAuthProvider("microsoft.com");
