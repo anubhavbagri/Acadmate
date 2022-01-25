@@ -8,6 +8,7 @@ import { focusHandling } from 'cruip-js-toolkit';
 
 import Home from './pages/Home';
 import UploadForm from './pages/UploadForm';
+import DownloadForm from './pages/DownloadForm';
 
 function App() {
   const location = useLocation();
@@ -37,8 +38,10 @@ function App() {
         <Route path="/upload">
           <UploadForm />
         </Route>
-        {/*
-        <Route path="/signup"><SignUp /></Route>*/}
+
+        <Route path="/download">
+          <DownloadForm />
+        </Route>
       </Switch>
     </>
   );
