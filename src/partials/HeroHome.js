@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { Link } from "react-scroll";
-import app from "../utils/firebase-config";
-import firebase from "firebase";
+import React, { useState } from 'react';
+import { Link } from 'react-scroll';
+import app from '../utils/firebase-config';
+import firebase from 'firebase';
 
 function HeroHome() {
   const [loader, setLoader] = React.useState({
     microsoftLoading: false,
   });
   const [error, setError] = React.useState({
-    message: "",
+    message: '',
     open: false,
   });
   //We are creating a provider using the firebase auth method for MicrosoftAuthProvider followed by creating a firebase auth method using signInWithPopup which accepts the provider as an argument and handle the authentication part for us. The signInWithPopup method returns a promise and we can finally get all the user credentials after handling our promise using .then and .catch methods.
   const handleMicrosoftLogin = () => {
     setLoader((prevState) => ({ ...prevState, microsoftLoading: true }));
-    const provider = new firebase.auth.OAuthProvider("microsoft.com");
+    const provider = new firebase.auth.OAuthProvider('microsoft.com');
     firebase
       .auth()
       .signInWithPopup(provider)
@@ -23,7 +23,7 @@ function HeroHome() {
         setLoader((prevState) => ({ ...prevState, microsoftLoading: false }));
       })
       .catch((e) => {
-        console.log(e, "error");
+        console.log(e, 'error');
         setLoader((prevState) => ({ ...prevState, microsoftLoading: false }));
       });
   };
@@ -71,7 +71,7 @@ function HeroHome() {
               data-aos="zoom-y-out"
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-500">
-                Acadmate{" "}
+                Acadmate{' '}
               </span>
               - Your
               <br />
@@ -95,7 +95,7 @@ function HeroHome() {
                   <a
                     className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
                     onClick={() => handleMicrosoftLogin()}
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: 'pointer' }}
                   >
                     Login with Microsoft
                   </a>
@@ -105,7 +105,7 @@ function HeroHome() {
                     to="feat"
                     spy={true}
                     smooth={true}
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: 'pointer' }}
                     className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4"
                   >
                     Learn more
@@ -125,7 +125,7 @@ function HeroHome() {
               <div className="flex flex-col justify-center">
                 <img
                   className="mx-auto"
-                  src={require("../images/hero-image.png").default}
+                  src={require('../images/hero-image.png').default}
                   width="768"
                   height="432"
                   alt="Hero"
