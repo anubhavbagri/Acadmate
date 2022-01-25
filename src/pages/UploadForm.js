@@ -303,6 +303,49 @@ function UploadForm() {
           </div>
         </form>
       </div>
+
+      {/* <div class="toast-container position-fixed top-0 end-0">
+        <div
+          class="toast align-items-center bg-success text-white border-0"
+          role="alert"
+          id="toast-success"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="d-flex">
+            <div class="toast-body" id="toast-success-body">
+              Successfully published!
+            </div>
+            <button
+              type="button"
+              class="btn-close btn-close-white me-2 m-auto"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+      </div> */}
+      {/* <div class="toast-container position-fixed top-0 end-0">
+        <div
+          class="toast align-items-center text-white bg-error border-0"
+          id="toast-error"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="d-flex">
+            <div class="toast-body" id="toast-error-body">
+              Error in publishing, try again later.
+            </div>
+            <button
+              type="button"
+              class="btn-close btn-close-white me-2 m-auto"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+      </div> */}
     </div>
   );
 }
