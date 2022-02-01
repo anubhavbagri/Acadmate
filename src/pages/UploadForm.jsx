@@ -73,6 +73,7 @@ function UploadForm() {
                 <label className="block" htmlFor="semester">
                   Semester
                   <select
+                    defaultValue={'DEFAULT'}
                     className="text-sm block w-full mt-1.5 py-1 pl-2
                     rounded-md
                     border-gray-300
@@ -81,7 +82,7 @@ function UploadForm() {
                     id="semester"
                     name="semester"
                   >
-                    <option value="" hidden selected disabled>
+                    <option value="DEFAULT" hidden disabled>
                       Select Semester
                     </option>
                     <option value="3">III</option>
@@ -95,6 +96,7 @@ function UploadForm() {
                 <label className="block" htmlFor="subject">
                   Subject
                   <select
+                    defaultValue={'DEFAULT'}
                     className="text-sm block w-full mt-1.5 py-1 pl-2
                     rounded-md
                     border-gray-300
@@ -103,7 +105,7 @@ function UploadForm() {
                     id="subject"
                     name="subject"
                   >
-                    <option value="" disabled hidden selected>
+                    <option value="DEFAULT" disabled hidden>
                       Select Subject
                     </option>
                     <option value="" disabled>
@@ -118,6 +120,7 @@ function UploadForm() {
                   <label htmlFor="type">
                     Type
                     <select
+                      defaultValue={'DEFAULT'}
                       className="text-sm block w-full mt-1.5 py-1 pl-2
                     rounded-md
                     border-gray-300
@@ -126,7 +129,7 @@ function UploadForm() {
                       id="type"
                       name="type"
                     >
-                      <option value="" disabled hidden selected>
+                      <option value="DEFAULT" disabled hidden>
                         Select Type (MTE/ETE)
                       </option>
                       <option value="MTE1">MTE 1</option>
@@ -139,6 +142,7 @@ function UploadForm() {
                   <label htmlFor="year">
                     Year
                     <select
+                      defaultValue={'DEFAULT'}
                       className="text-sm block w-full mt-1.5 py-1 pl-2
                     rounded-md
                     border-gray-300
@@ -147,7 +151,7 @@ function UploadForm() {
                       id="year"
                       name="year"
                     >
-                      <option value="" disabled hidden selected>
+                      <option value="DEFAULT" disabled hidden>
                         Year
                       </option>
                       <option value="2021">2021</option>
