@@ -12,15 +12,15 @@
 @tailwind utilities;
 
 // Additional Tailwind directives: https://tailwindcss.com/docs/functions-and-directives/#responsive
-@responsive {
-    .rtl {
-        direction: rtl;
-    }
+@layer utilities {
+  .rtl {
+    direction: rtl;
+  }
 }
 
 // See Alpine.js: https://github.com/alpinejs/alpine#x-cloak
 [x-cloak] {
-    display: none;
+  display: none;
 }
 
 // AOS styles
