@@ -7,9 +7,9 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-function Navbar() {
+function Navbar({ name }) {
   return (
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5">
+    <nav className="bg-transparent fixed w-full z-10 px-2 sm:px-4 py-2.5">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <a href="#" className="flex">
           <span className="self-center text-xl font-semibold whitespace-nowrap">
@@ -21,7 +21,7 @@ function Navbar() {
             <Menu as="div" className="relative inline-block text-left">
               <div>
                 <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-gray-700 focus:outline-none ">
-                  Anubhav Bagri [IT - 2019]
+                  {name}
                   <ChevronDownIcon
                     className="-mr-1 ml-2 h-6 w-6"
                     aria-hidden="true"
