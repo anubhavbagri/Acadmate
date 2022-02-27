@@ -1,18 +1,8 @@
-import React, { useContext } from 'react';
 import HeroImg from '../assets/hero-image.png';
 import { Link } from 'react-scroll';
-import AuthContext, { useAuthContext } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import OAuth from './OAuth';
 
 function HeroHome() {
-  const navigate = useNavigate();
-  const { handleMicrosoftLogin } = useAuthContext();
-
-  const loginHandler = async () => {
-    await handleMicrosoftLogin();
-    navigate('/profile');
-  };
-
   return (
     <section className="relative">
       {/* Illustration behind hero content */}
@@ -76,15 +66,7 @@ function HeroHome() {
                 data-aos="zoom-y-out"
                 data-aos-delay="300"
               >
-                <div>
-                  <a
-                    className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
-                    onClick={loginHandler}
-                    style={{ cursor: 'pointer' }}
-                  >
-                    Login with Microsoft
-                  </a>
-                </div>
+                <OAuth />
                 <div>
                   <Link
                     to="feat"
