@@ -1,5 +1,7 @@
 import React from 'react';
 import { Fragment } from 'react';
+import { getAuth } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 
@@ -7,7 +9,15 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-function Navbar({ name }) {
+function Navbar() {
+  const auth = getAuth();
+  const navigate = useNavigate();
+
+  const onLogout = () => {
+    auth.signOut();
+    navigate('/');
+  };
+
   return (
     <nav className="bg-transparent fixed w-full z-10 px-2 sm:px-4 py-2.5">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
@@ -21,7 +31,7 @@ function Navbar({ name }) {
             <Menu as="div" className="relative inline-block text-left">
               <div>
                 <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-gray-700 focus:outline-none ">
-                  {name}
+                  {auth.currentUser.displayName}
                   <ChevronDownIcon
                     className="-mr-1 ml-2 h-6 w-6"
                     aria-hidden="true"
@@ -43,7 +53,8 @@ function Navbar({ name }) {
                     <Menu.Item>
                       {({ active }) => (
                         <a
-                          href="#"
+                          onClick={() => navigate('/profile')}
+                          style={{ cursor: 'pointer' }}
                           className={classNames(
                             active
                               ? 'bg-gray-200 text-gray-900'
@@ -60,7 +71,8 @@ function Navbar({ name }) {
                     <Menu.Item>
                       {({ active }) => (
                         <a
-                          href="#"
+                          onClick={() => navigate('/upload')}
+                          style={{ cursor: 'pointer' }}
                           className={classNames(
                             active
                               ? 'bg-gray-200 text-gray-900'
@@ -75,7 +87,8 @@ function Navbar({ name }) {
                     <Menu.Item>
                       {({ active }) => (
                         <a
-                          href="#"
+                          onClick={() => navigate('/download')}
+                          style={{ cursor: 'pointer' }}
                           className={classNames(
                             active
                               ? 'bg-gray-200 text-gray-900'
@@ -92,7 +105,8 @@ function Navbar({ name }) {
                     <Menu.Item>
                       {({ active }) => (
                         <a
-                          href="#"
+                          onClick={onLogout}
+                          style={{ cursor: 'pointer' }}
                           className={classNames(
                             active
                               ? 'bg-gray-200 text-red-500'
