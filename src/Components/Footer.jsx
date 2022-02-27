@@ -15,7 +15,7 @@ function Footer() {
             </p>
           </div>
           <span className="inline-flex justify-center mt-4 space-x-5 text-sm sm:justify-start text-gray-500 sm:ml-4 sm:pl-4 sm:mt-0">
-            Made with &#10084; in India.
+            Made with &#10084; for MUJ.
           </span>
         </div>
       </div>
