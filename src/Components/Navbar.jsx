@@ -21,7 +21,7 @@ function Navbar() {
   return (
     <nav className="bg-transparent fixed w-full z-10 px-2 sm:px-4 py-2.5">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <a href="#" className="flex">
+        <a className="flex">
           <span className="self-center text-xl font-semibold whitespace-nowrap">
             Acadmate
           </span>
