@@ -830,22 +830,82 @@ export const Schema = {
           semno: 3,
           subjects: [
             {
+              Value: 'Mathematical Foundations for Data Science-I',
+            },
+            {
+              Value: 'Finance & Econometrics',
+            },
+            {
+              Value: 'Introduction to Data Analytics',
+            },
+            {
+              Value: 'Object Oriented Programing',
+            },
+            {
+              Value: 'Data Structures',
+            },
+            {
               Value: 'Computer System Architecture',
             },
+          ],
+        },
+        {
+          semno: 4,
+          subjects: [
             {
-              Value: 'Data Communications',
+              Value: 'Mathematical Foundations For Data Science-II',
             },
             {
-              Value: 'Data Structures and Algorithms',
+              Value: 'Database Systems',
             },
             {
-              Value: 'Economics',
+              Value: 'Machine Learning',
             },
             {
-              Value: 'Engineering Mathematics III',
+              Value: 'Design & Analysis of Algorithms',
             },
             {
-              Value: 'Object Oriented Programming',
+              Value: 'Data Communications and Networks',
+            },
+          ],
+        },
+        {
+          semno: 5,
+          subjects: [
+            {
+              Value: 'Mathematical Foundations for Data Science-III',
+            },
+            {
+              Value: 'Deep Learning',
+            },
+            {
+              Value: 'Operating Systems',
+            },
+            {
+              Value: 'Natural Language Processing',
+            },
+            {
+              Value: 'Cloud Computing',
+            },
+          ],
+        },
+        {
+          semno: 6,
+          subjects: [
+            {
+              Value: 'Operations Research',
+            },
+            {
+              Value: 'Artificial Intelligence',
+            },
+            {
+              Value: 'Parallel Programming',
+            },
+            {
+              Value: 'Big Data Analytics',
+            },
+            {
+              Value: 'Data Privacy & Security',
             },
           ],
         },
