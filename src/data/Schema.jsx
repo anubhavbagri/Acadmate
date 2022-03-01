@@ -7,22 +7,76 @@ export const Schema = {
           semno: 3,
           subjects: [
             {
-              Value: 'Computer System Architecture',
+              Value: 'Value Ethics & Governance',
             },
             {
-              Value: 'Data Communications',
+              Value: 'Engineering Mathematics-III',
             },
             {
-              Value: 'Data Structures and Algorithms',
+              Value: 'Material Science and Metallurgy',
             },
+            {
+              Value: 'Strength of Materials',
+            },
+            {
+              Value: 'Theory of Automotive Engines',
+            },
+            {
+              Value: 'Engineering Thermodynamics',
+            },
+          ],
+        },
+        {
+          semno: 4,
+          subjects: [
             {
               Value: 'Economics',
             },
             {
-              Value: 'Engineering Mathematics III',
+              Value: 'Engineering Mathematics-IV',
             },
             {
-              Value: 'Object Oriented Programming',
+              Value: 'Automotive Chassis System',
+            },
+            {
+              Value: 'Kinematics and Dynamics of Automobile',
+            },
+            {
+              Value: 'Fluid Mechanics',
+            },
+          ],
+        },
+        {
+          semno: 5,
+          subjects: [
+            {
+              Value: 'Management',
+            },
+            {
+              Value: 'Automotive Transmission Systems',
+            },
+            {
+              Value: 'Manufacturing Technology',
+            },
+            {
+              Value: 'Automotive Design',
+            },
+            {
+              Value: 'Automotive Electrical and Electronic Systems',
+            },
+          ],
+        },
+        {
+          semno: 6,
+          subjects: [
+            {
+              Value: 'Heat transfer',
+            },
+            {
+              Value: 'Electric and Hybrid vehicle',
+            },
+            {
+              Value: 'Quality Assurance and Reliability Engineering',
             },
           ],
         },
@@ -285,19 +339,19 @@ export const Schema = {
           semno: 3,
           subjects: [
             {
-              Value: 'Computer System Architecture',
+              Value: 'Economics',
+            },
+            {
+              Value: 'Engineering Mathematics III',
+            },
+            {
+              Value: 'Digital Design and Computer Architecture',
             },
             {
               Value: 'Data Communications',
             },
             {
               Value: 'Data Structures and Algorithms',
-            },
-            {
-              Value: 'Economics',
-            },
-            {
-              Value: 'Engineering Mathematics III',
             },
             {
               Value: 'Object Oriented Programming',
@@ -308,22 +362,19 @@ export const Schema = {
           semno: 4,
           subjects: [
             {
-              Value: 'Computer System Architecture',
+              Value: 'Value, Ethics and Governance',
             },
             {
-              Value: 'Data Communications',
+              Value: 'Engineering Mathematics IV',
             },
             {
-              Value: 'Data Structures and Algorithms',
+              Value: 'Computer Networks',
             },
             {
-              Value: 'Economics',
+              Value: 'Relational Database Management Systems',
             },
             {
-              Value: 'Engineering Mathematics III',
-            },
-            {
-              Value: 'Object Oriented Programming',
+              Value: 'Operating Systems',
             },
           ],
         },
@@ -331,22 +382,16 @@ export const Schema = {
           semno: 5,
           subjects: [
             {
-              Value: 'Computer System Architecture',
+              Value: 'Software Engineering',
             },
             {
-              Value: 'Data Communications',
+              Value: 'Design and Analysis of Algorithms',
             },
             {
-              Value: 'Data Structures and Algorithms',
+              Value: 'Foundations of Data Science',
             },
             {
-              Value: 'Economics',
-            },
-            {
-              Value: 'Engineering Mathematics III',
-            },
-            {
-              Value: 'Object Oriented Programming',
+              Value: 'Cryptography and Security',
             },
           ],
         },
@@ -354,22 +399,16 @@ export const Schema = {
           semno: 6,
           subjects: [
             {
-              Value: 'Computer System Architecture',
+              Value: 'Organization and Management',
             },
             {
-              Value: 'Data Communications',
+              Value: 'Artificial Intelligence and Machine Learning',
             },
             {
-              Value: 'Data Structures and Algorithms',
+              Value: 'Wireless Communications',
             },
             {
-              Value: 'Economics',
-            },
-            {
-              Value: 'Engineering Mathematics III',
-            },
-            {
-              Value: 'Object Oriented Programming',
+              Value: 'Automata Theory and Compiler Design',
             },
           ],
         },
