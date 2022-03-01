@@ -253,22 +253,76 @@ export const Schema = {
           semno: 3,
           subjects: [
             {
-              Value: 'Computer System Architecture',
+              Value: 'Value, Ethics and Governance',
             },
             {
-              Value: 'Data Communications',
+              Value: 'Engineering Mathematics-III',
             },
             {
-              Value: 'Data Structures and Algorithms',
+              Value: 'Strength of Materials',
             },
+            {
+              Value: 'Linear Integrated Circuits',
+            },
+            {
+              Value: 'Theory of Machines',
+            },
+            {
+              Value: 'Sensor and Instrumentation',
+            },
+          ],
+        },
+        {
+          semno: 4,
+          subjects: [
             {
               Value: 'Economics',
             },
             {
-              Value: 'Engineering Mathematics III',
+              Value: 'Engineering Mathematics-IV',
             },
             {
-              Value: 'Object Oriented Programming',
+              Value: 'Design of Machine Elements',
+            },
+            {
+              Value: 'Digital System Design',
+            },
+            {
+              Value: 'Fluid Mechanics',
+            },
+          ],
+        },
+        {
+          semno: 5,
+          subjects: [
+            {
+              Value: 'Organization and Management',
+            },
+            {
+              Value: 'Signal and Systems',
+            },
+            {
+              Value: 'Microcontroller Based System Design',
+            },
+            {
+              Value: 'Pneumatic and Hydraulic Systems',
+            },
+            {
+              Value: 'Linear Control Theory',
+            },
+          ],
+        },
+        {
+          semno: 6,
+          subjects: [
+            {
+              Value: 'Robotics',
+            },
+            {
+              Value: 'Computer Integrated Manufacturing',
+            },
+            {
+              Value: 'Power Electronics and Electrical Drives',
             },
           ],
         },
@@ -281,22 +335,79 @@ export const Schema = {
           semno: 3,
           subjects: [
             {
-              Value: 'Computer System Architecture',
-            },
-            {
-              Value: 'Data Communications',
-            },
-            {
-              Value: 'Data Structures and Algorithms',
-            },
-            {
-              Value: 'Economics',
+              Value: 'Value Ethics & Governance',
             },
             {
               Value: 'Engineering Mathematics III',
             },
             {
-              Value: 'Object Oriented Programming',
+              Value: 'Materials Science and Engineering',
+            },
+            {
+              Value: 'Kinematics of Machines',
+            },
+            {
+              Value: 'Thermodynamics',
+            },
+            {
+              Value: 'Strength of Materials',
+            },
+          ],
+        },
+        {
+          semno: 4,
+          subjects: [
+            {
+              Value: 'Economics',
+            },
+            {
+              Value: 'Engineering Mathematics IV',
+            },
+            {
+              Value: 'Metrology',
+            },
+            {
+              Value: 'Fluid Mechanics',
+            },
+            {
+              Value: 'Dynamics of Machines',
+            },
+          ],
+        },
+        {
+          semno: 5,
+          subjects: [
+            {
+              Value: 'Organization and Management',
+            },
+            {
+              Value: 'Production Technology- I',
+            },
+            {
+              Value: 'Design of Machine Elements',
+            },
+            {
+              Value: 'Heat & Mass Transfer',
+            },
+            {
+              Value: 'Internal Combustion Engine',
+            },
+          ],
+        },
+        {
+          semno: 6,
+          subjects: [
+            {
+              Value: 'Production Technology - II',
+            },
+            {
+              Value: 'Introduction to Finite Element Methods',
+            },
+            {
+              Value: 'Refrigeration and Air Conditioning',
+            },
+            {
+              Value: 'Computer Integrated Manufacturing',
             },
           ],
         },
