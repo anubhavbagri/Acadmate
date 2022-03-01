@@ -89,22 +89,76 @@ export const Schema = {
           semno: 3,
           subjects: [
             {
-              Value: 'Computer System Architecture',
+              Value: 'Value Ethics and Governance',
             },
             {
-              Value: 'Data Communications',
+              Value: 'Engineering Mathematics-III',
             },
             {
-              Value: 'Data Structures and Algorithms',
+              Value: 'Chemical Process Calculations',
             },
+            {
+              Value: 'Momentum Transfer Operations',
+            },
+            {
+              Value: 'Chemical Engineering Thermodynamics',
+            },
+            {
+              Value: 'Transport Phenomena',
+            },
+          ],
+        },
+        {
+          semno: 4,
+          subjects: [
             {
               Value: 'Economics',
             },
             {
-              Value: 'Engineering Mathematics III',
+              Value: 'Engineering Mathematics-IV',
             },
             {
-              Value: 'Object Oriented Programming',
+              Value: 'Chemical Reaction Engineering-I',
+            },
+            {
+              Value: 'Heat Transfer Operations',
+            },
+            {
+              Value: 'Mass Transfer-I',
+            },
+          ],
+        },
+        {
+          semno: 5,
+          subjects: [
+            {
+              Value: 'Organisation and Management',
+            },
+            {
+              Value: 'Mass Transfer-II',
+            },
+            {
+              Value: 'Chemical Reaction Engineering-II',
+            },
+            {
+              Value: 'Process Modeling and Simulation',
+            },
+            {
+              Value: 'Process Safety Analysis',
+            },
+          ],
+        },
+        {
+          semno: 6,
+          subjects: [
+            {
+              Value: 'Process Safety Analysis',
+            },
+            {
+              Value: 'Chemical Process Industries',
+            },
+            {
+              Value: 'Process Dynamics and Control',
             },
           ],
         },
@@ -117,22 +171,76 @@ export const Schema = {
           semno: 3,
           subjects: [
             {
-              Value: 'Computer System Architecture',
+              Value: 'Value, Ethics and Governance',
             },
             {
-              Value: 'Data Communications',
+              Value: 'Engineering Mathematics-III',
             },
             {
-              Value: 'Data Structures and Algorithms',
+              Value: 'Fluid Mechanics',
             },
+            {
+              Value: 'Building Materials & Construction Technology',
+            },
+            {
+              Value: 'Surveying',
+            },
+            {
+              Value: 'Structural Analysis',
+            },
+          ],
+        },
+        {
+          semno: 4,
+          subjects: [
             {
               Value: 'Economics',
             },
             {
-              Value: 'Engineering Mathematics III',
+              Value: 'Engineering Mathematics-IV',
             },
             {
-              Value: 'Object Oriented Programming',
+              Value: 'Engineering Geology',
+            },
+            {
+              Value: 'Water Supply Engineering',
+            },
+            {
+              Value: 'Analysis of Indeterminate Structures',
+            },
+          ],
+        },
+        {
+          semno: 5,
+          subjects: [
+            {
+              Value: 'Organisation and Management',
+            },
+            {
+              Value: 'Geotechnical Engineering',
+            },
+            {
+              Value: 'Highway Engineering',
+            },
+            {
+              Value: 'Design of Reinforced Concrete Structures',
+            },
+            {
+              Value: 'Waste Water Management',
+            },
+          ],
+        },
+        {
+          semno: 6,
+          subjects: [
+            {
+              Value: 'Applied Geotechnical Engineering',
+            },
+            {
+              Value: 'Design of Steel Structures',
+            },
+            {
+              Value: 'Water Resources Engineering',
             },
           ],
         },
