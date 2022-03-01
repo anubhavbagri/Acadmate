@@ -420,22 +420,76 @@ export const Schema = {
           semno: 3,
           subjects: [
             {
-              Value: 'Computer System Architecture',
-            },
-            {
-              Value: 'Data Communications',
-            },
-            {
-              Value: 'Data Structures and Algorithms',
-            },
-            {
-              Value: 'Economics',
+              Value: 'Value Ethics & Governance',
             },
             {
               Value: 'Engineering Mathematics III',
             },
             {
-              Value: 'Object Oriented Programming',
+              Value: 'Analog & Digital System Design',
+            },
+            {
+              Value: 'Electromagnetic Field Theory',
+            },
+            {
+              Value: 'Electrical Circuit Analysis',
+            },
+            {
+              Value: 'Electrical Machines - I',
+            },
+          ],
+        },
+        {
+          semno: 4,
+          subjects: [
+            {
+              Value: 'Economics',
+            },
+            {
+              Value: 'Engineering Mathematics IV',
+            },
+            {
+              Value: 'Electrical Machinery - II',
+            },
+            {
+              Value: 'Generation Transmission & Distribution',
+            },
+            {
+              Value: 'Microcontrollers',
+            },
+          ],
+        },
+        {
+          semno: 5,
+          subjects: [
+            {
+              Value: 'Organization and Management',
+            },
+            {
+              Value: 'Communication Systems',
+            },
+            {
+              Value: 'Digital Signal Processing',
+            },
+            {
+              Value: 'Measurements & Instrumentation',
+            },
+            {
+              Value: 'Power System Analysis',
+            },
+          ],
+        },
+        {
+          semno: 6,
+          subjects: [
+            {
+              Value: 'Linear Control Theory',
+            },
+            {
+              Value: 'Power Electronics',
+            },
+            {
+              Value: 'Switch Gear & Protection',
             },
           ],
         },
@@ -448,22 +502,76 @@ export const Schema = {
           semno: 3,
           subjects: [
             {
-              Value: 'Computer System Architecture',
-            },
-            {
-              Value: 'Data Communications',
-            },
-            {
-              Value: 'Data Structures and Algorithms',
-            },
-            {
-              Value: 'Economics',
+              Value: 'Value Ethics & Governance',
             },
             {
               Value: 'Engineering Mathematics III',
             },
             {
-              Value: 'Object Oriented Programming',
+              Value: 'Signals & Systems',
+            },
+            {
+              Value: 'Analog Electronics',
+            },
+            {
+              Value: 'Digital System Design & Computer Architecture',
+            },
+            {
+              Value: 'Electromagnetic Field Theory',
+            },
+          ],
+        },
+        {
+          semno: 4,
+          subjects: [
+            {
+              Value: 'Economics',
+            },
+            {
+              Value: 'Engineering Mathematics IV',
+            },
+            {
+              Value: 'Analog Integrated Circuits & Systems',
+            },
+            {
+              Value: 'Microprocessors & Microcontrollers',
+            },
+            {
+              Value: 'Digital Signal Processing',
+            },
+          ],
+        },
+        {
+          semno: 5,
+          subjects: [
+            {
+              Value: 'Organization & Management',
+            },
+            {
+              Value: 'Antennas',
+            },
+            {
+              Value: 'Network & Control Theory',
+            },
+            {
+              Value: 'Analog & Digital Communication',
+            },
+            {
+              Value: 'CMOS VLSI Design',
+            },
+          ],
+        },
+        {
+          semno: 6,
+          subjects: [
+            {
+              Value: 'Microwave Engineering',
+            },
+            {
+              Value: 'Embedded & Real Time Operating Systems',
+            },
+            {
+              Value: 'Optical Communication',
             },
           ],
         },
