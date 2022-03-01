@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../Components/Navbar';
-import { uploadSchema } from '../data/uploadSchema';
+import { Schema } from '../data/Schema';
 import UploadImg from '../assets/upload-01.png';
 
 import '../css/styles.css';
@@ -12,15 +12,15 @@ function UploadForm() {
 
   useEffect(() => {
     if (Branch && Sem) {
-      const index = uploadSchema.branches.findIndex((branch) => {
+      const index = Schema.branches.findIndex((branch) => {
         return branch.Value === Branch;
       });
 
-      const semIndex = uploadSchema.branches[index].sems.findIndex((sem) => {
+      const semIndex = Schema.branches[index].sems.findIndex((sem) => {
         return sem.semno.toString() === Sem.toString();
       });
 
-      const subjectsArr = uploadSchema.branches[index].sems[semIndex].subjects;
+      const subjectsArr = Schema.branches[index].sems[semIndex].subjects;
       setSubjectsArr(subjectsArr);
     }
   }, [Branch, Sem]);
@@ -96,7 +96,7 @@ function UploadForm() {
                       <option value="DEFAULT" hidden disabled>
                         Select Branch
                       </option>
-                      {uploadSchema.branches.map((e, key) => (
+                      {Schema.branches.map((e, key) => (
                         <option key={key} value={e.Value}>
                           {e.Value}
                         </option>
