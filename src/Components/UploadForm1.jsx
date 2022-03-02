@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Schema } from '../data/Schema';
 
-function UploadForm1(props) {
-  const [Branch, setBranch] = useState('');
-  const [Sem, setSem] = useState('');
+function UploadForm1({ nextStep, handleStateChange, values }) {
+  const [Branch, setBranch] = useState(values.Branch);
+  const [Sem, setSem] = useState(values.Sem);
+  const [Subject, setSubject] = useState(values.Subject);
+  const [Type, setType] = useState(values.Type);
+  const [Year, setYear] = useState(values.Year);
+
   const [subjectsArr, setSubjectsArr] = useState([]);
 
   useEffect(() => {
-    if (Branch && Sem) {
+    if (Branch !== 'Select Branch' && Sem !== 'Select Semester') {
       const index = Schema.branches.findIndex((branch) => {
         return branch.Value === Branch;
       });
@@ -20,6 +24,11 @@ function UploadForm1(props) {
       setSubjectsArr(subjectsArr);
     }
   }, [Branch, Sem]);
+
+  const handleSubmit = () => {
+    nextStep();
+    handleStateChange({ Branch, Sem, Subject, Type, Year });
+  };
 
   return (
     <div className="form-box" id="form-box-details">
@@ -72,7 +81,7 @@ function UploadForm1(props) {
             }}
           >
             <option value="DEFAULT" hidden disabled>
-              Select Branch
+              {Branch}
             </option>
             {Schema.branches.map((e, key) => (
               <option key={key} value={e.Value}>
@@ -99,7 +108,7 @@ function UploadForm1(props) {
             }}
           >
             <option value="DEFAULT" hidden disabled>
-              Select Semester
+              {Sem}
             </option>
             <option value="3">III</option>
             <option value="4">IV</option>
@@ -120,9 +129,12 @@ function UploadForm1(props) {
       focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
             id="subject"
             name="subject"
+            onChange={(e) => {
+              setSubject(e.target.value);
+            }}
           >
             <option value="DEFAULT" disabled hidden>
-              Select Subject
+              {Subject}
             </option>
             {subjectsArr.map((e, key) => (
               <option key={key} value={e.Value}>
@@ -146,9 +158,12 @@ function UploadForm1(props) {
       focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
               id="type"
               name="type"
+              onChange={(e) => {
+                setType(e.target.value);
+              }}
             >
               <option value="DEFAULT" disabled hidden>
-                Select Type (MTE/ETE)
+                {Type}
               </option>
               <option value="MTE1">MTE 1</option>
               <option value="MTE2">MTE 2</option>
@@ -168,9 +183,12 @@ function UploadForm1(props) {
       focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
               id="year"
               name="year"
+              onChange={(e) => {
+                setYear(e.target.value);
+              }}
             >
               <option value="DEFAULT" disabled hidden>
-                Year
+                {Year}
               </option>
               <option value="2021">2021</option>
               <option value="2020">2020</option>
@@ -185,7 +203,7 @@ function UploadForm1(props) {
       <button
         className="button button-primary float-right mt-12 rounded border text-white"
         id="detailsCheck"
-        onClick={() => props.nextStep()}
+        onClick={handleSubmit}
       >
         Continue -{'>'}
       </button>

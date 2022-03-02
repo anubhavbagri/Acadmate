@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../Components/Navbar';
-import { Schema } from '../data/Schema';
 import UploadImg from '../assets/upload-01.png';
 
 import '../css/styles.css';
@@ -11,9 +10,13 @@ import UploadForm3 from '../Components/UploadForm3';
 function UploadForm() {
   const [step, setStep] = useState(1);
 
-  useEffect(() => {
-    console.log(step);
-  }, [step]);
+  const [formData, setFormData] = useState({
+    Branch: 'Select Branch',
+    Sem: 'Select Semester',
+    Subject: 'Select Subject',
+    Type: 'Select Type (MTE/ETE)',
+    Year: 'Select Year',
+  });
 
   const nextStep = () => {
     setStep(step + 1);
@@ -23,11 +26,25 @@ function UploadForm() {
     setStep(step - 1);
   };
 
+  const handleStateChange = (values) => {
+    setFormData({
+      ...formData,
+      ...values,
+      step,
+    });
+  };
+
   let renderForm;
 
   switch (step) {
     case 1:
-      renderForm = <UploadForm1 nextStep={nextStep} />;
+      renderForm = (
+        <UploadForm1
+          nextStep={nextStep}
+          handleStateChange={handleStateChange}
+          values={formData}
+        />
+      );
       break;
     case 2:
       renderForm = <UploadForm2 prevStep={prevStep} nextStep={nextStep} />;
