@@ -185,7 +185,7 @@ function UploadForm1(props) {
       <button
         className="button button-primary float-right mt-12 rounded border text-white"
         id="detailsCheck"
-        onClick={props.nextStep}
+        onClick={() => props.nextStep()}
       >
         Continue -{'>'}
       </button>
