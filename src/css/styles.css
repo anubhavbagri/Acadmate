@@ -94,11 +94,6 @@ label {
     padding-bottom: 4rem;
 }
 
-#form-box-file,
-#form-box-confirm {
-    display: none;
-}
-
 .uploader {
     margin: 0 auto;
     width: 100%;
