@@ -94,10 +94,10 @@ function DownloadForm() {
                   <option value="DEFAULT" hidden disabled>
                     Select Semester
                   </option>
-                  <option value="3">III</option>
-                  <option value="4">IV</option>
-                  <option value="5">V</option>
-                  <option value="6">VI</option>
+                  <option value="III">III</option>
+                  <option value="IV">IV</option>
+                  <option value="V">V</option>
+                  <option value="VI">VI</option>
                 </select>
               </label>
             </div>
