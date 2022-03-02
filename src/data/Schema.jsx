@@ -4,7 +4,7 @@ export const Schema = {
       Value: 'Automobile Engineering',
       sems: [
         {
-          semno: 3,
+          semno: 'III',
           subjects: [
             {
               Value: 'Value Ethics & Governance',
@@ -27,7 +27,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 4,
+          semno: 'IV',
           subjects: [
             {
               Value: 'Economics',
@@ -47,7 +47,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 5,
+          semno: 'V',
           subjects: [
             {
               Value: 'Management',
@@ -67,7 +67,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 6,
+          semno: 'VI',
           subjects: [
             {
               Value: 'Heat transfer',
@@ -86,7 +86,7 @@ export const Schema = {
       Value: 'Chemical Engineering',
       sems: [
         {
-          semno: 3,
+          semno: 'III',
           subjects: [
             {
               Value: 'Value Ethics and Governance',
@@ -109,7 +109,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 4,
+          semno: 'IV',
           subjects: [
             {
               Value: 'Economics',
@@ -129,7 +129,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 5,
+          semno: 'V',
           subjects: [
             {
               Value: 'Organisation and Management',
@@ -149,7 +149,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 6,
+          semno: 'VI',
           subjects: [
             {
               Value: 'Process Safety Analysis',
@@ -168,7 +168,7 @@ export const Schema = {
       Value: 'Civil Engineering',
       sems: [
         {
-          semno: 3,
+          semno: 'III',
           subjects: [
             {
               Value: 'Value, Ethics and Governance',
@@ -191,7 +191,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 4,
+          semno: 'IV',
           subjects: [
             {
               Value: 'Economics',
@@ -211,7 +211,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 5,
+          semno: 'V',
           subjects: [
             {
               Value: 'Organisation and Management',
@@ -231,7 +231,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 6,
+          semno: 'VI',
           subjects: [
             {
               Value: 'Applied Geotechnical Engineering',
@@ -250,7 +250,7 @@ export const Schema = {
       Value: 'Mechatronics Engineering',
       sems: [
         {
-          semno: 3,
+          semno: 'III',
           subjects: [
             {
               Value: 'Value, Ethics and Governance',
@@ -273,7 +273,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 4,
+          semno: 'IV',
           subjects: [
             {
               Value: 'Economics',
@@ -293,7 +293,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 5,
+          semno: 'V',
           subjects: [
             {
               Value: 'Organization and Management',
@@ -313,7 +313,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 6,
+          semno: 'VI',
           subjects: [
             {
               Value: 'Robotics',
@@ -332,7 +332,7 @@ export const Schema = {
       Value: 'Mechanical Engineering',
       sems: [
         {
-          semno: 3,
+          semno: 'III',
           subjects: [
             {
               Value: 'Value Ethics & Governance',
@@ -355,7 +355,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 4,
+          semno: 'IV',
           subjects: [
             {
               Value: 'Economics',
@@ -375,7 +375,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 5,
+          semno: 'V',
           subjects: [
             {
               Value: 'Organization and Management',
@@ -395,7 +395,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 6,
+          semno: 'VI',
           subjects: [
             {
               Value: 'Production Technology - II',
@@ -417,7 +417,7 @@ export const Schema = {
       Value: 'Electrical & Electronics Engineering',
       sems: [
         {
-          semno: 3,
+          semno: 'III',
           subjects: [
             {
               Value: 'Value Ethics & Governance',
@@ -440,7 +440,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 4,
+          semno: 'IV',
           subjects: [
             {
               Value: 'Economics',
@@ -460,7 +460,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 5,
+          semno: 'V',
           subjects: [
             {
               Value: 'Organization and Management',
@@ -480,7 +480,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 6,
+          semno: 'VI',
           subjects: [
             {
               Value: 'Linear Control Theory',
@@ -499,7 +499,7 @@ export const Schema = {
       Value: 'Electronics & Communication Engineering',
       sems: [
         {
-          semno: 3,
+          semno: 'III',
           subjects: [
             {
               Value: 'Value Ethics & Governance',
@@ -522,7 +522,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 4,
+          semno: 'IV',
           subjects: [
             {
               Value: 'Economics',
@@ -542,7 +542,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 5,
+          semno: 'V',
           subjects: [
             {
               Value: 'Organization & Management',
@@ -562,7 +562,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 6,
+          semno: 'VI',
           subjects: [
             {
               Value: 'Microwave Engineering',
@@ -581,7 +581,7 @@ export const Schema = {
       Value: 'Computer Science & Engineering',
       sems: [
         {
-          semno: 3,
+          semno: 'III',
           subjects: [
             {
               Value: 'Computer System Architecture',
@@ -604,7 +604,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 4,
+          semno: 'IV',
           subjects: [
             {
               Value: 'Value, Ethics and Governance',
@@ -624,7 +624,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 5,
+          semno: 'V',
           subjects: [
             {
               Value: 'Artificial Intelligence & Soft Computing',
@@ -641,7 +641,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 6,
+          semno: 'VI',
           subjects: [
             {
               Value: 'Organization and Management',
@@ -663,7 +663,7 @@ export const Schema = {
       Value: 'Computer and Communication Engineering',
       sems: [
         {
-          semno: 3,
+          semno: 'III',
           subjects: [
             {
               Value: 'Economics',
@@ -686,7 +686,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 4,
+          semno: 'IV',
           subjects: [
             {
               Value: 'Value, Ethics and Governance',
@@ -706,7 +706,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 5,
+          semno: 'V',
           subjects: [
             {
               Value: 'Software Engineering',
@@ -723,7 +723,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 6,
+          semno: 'VI',
           subjects: [
             {
               Value: 'Organization and Management',
@@ -745,7 +745,7 @@ export const Schema = {
       Value: 'Information Technology',
       sems: [
         {
-          semno: 3,
+          semno: 'III',
           subjects: [
             {
               Value: 'Computer System Architecture',
@@ -768,7 +768,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 4,
+          semno: 'IV',
           subjects: [
             {
               Value: 'Engineering Mathematics IV',
@@ -788,7 +788,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 5,
+          semno: 'V',
           subjects: [
             {
               Value: 'Foundations of Data Science',
@@ -805,7 +805,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 6,
+          semno: 'VI',
           subjects: [
             {
               Value: 'Organization and Management',
@@ -827,7 +827,7 @@ export const Schema = {
       Value: 'Data Science & Engineering',
       sems: [
         {
-          semno: 3,
+          semno: 'III',
           subjects: [
             {
               Value: 'Mathematical Foundations for Data Science-I',
@@ -850,7 +850,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 4,
+          semno: 'IV',
           subjects: [
             {
               Value: 'Mathematical Foundations For Data Science-II',
@@ -870,7 +870,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 5,
+          semno: 'V',
           subjects: [
             {
               Value: 'Mathematical Foundations for Data Science-III',
@@ -890,7 +890,7 @@ export const Schema = {
           ],
         },
         {
-          semno: 6,
+          semno: 'VI',
           subjects: [
             {
               Value: 'Operations Research',

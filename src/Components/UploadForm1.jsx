@@ -17,7 +17,7 @@ function UploadForm1({ nextStep, handleStateChange, values }) {
       });
 
       const semIndex = Schema.branches[index].sems.findIndex((sem) => {
-        return sem.semno.toString() === Sem.toString();
+        return sem.semno === Sem;
       });
 
       const subjectsArr = Schema.branches[index].sems[semIndex].subjects;
@@ -110,10 +110,10 @@ function UploadForm1({ nextStep, handleStateChange, values }) {
             <option value="DEFAULT" hidden disabled>
               {Sem}
             </option>
-            <option value="3">III</option>
-            <option value="4">IV</option>
-            <option value="5">V</option>
-            <option value="6">VI</option>
+            <option value="III">III</option>
+            <option value="IV">IV</option>
+            <option value="V">V</option>
+            <option value="VI">VI</option>
           </select>
         </label>
       </div>
