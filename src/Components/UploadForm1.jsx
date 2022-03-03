@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Schema } from '../data/Schema';
+import { toast } from 'react-toastify';
 
 function UploadForm1({ nextStep, handleStateChange, values }) {
   const [Branch, setBranch] = useState(values.Branch);
@@ -26,8 +27,18 @@ function UploadForm1({ nextStep, handleStateChange, values }) {
   }, [Branch, Sem]);
 
   const handleSubmit = () => {
-    nextStep();
-    handleStateChange({ Branch, Sem, Subject, Type, Year });
+    if (
+      Branch === 'Select Branch' ||
+      Sem === 'Select Semester' ||
+      Subject === 'Select Subject' ||
+      Type === 'Select Type (MTE/ETE)' ||
+      Year === 'Select Year'
+    ) {
+      toast.error('Please select all fields');
+    } else {
+      nextStep();
+      handleStateChange({ Branch, Sem, Subject, Type, Year });
+    }
   };
 
   return (
@@ -203,6 +214,7 @@ function UploadForm1({ nextStep, handleStateChange, values }) {
       <button
         className="button button-primary float-right mt-12 rounded border text-white"
         id="detailsCheck"
+        type="button"
         onClick={handleSubmit}
       >
         Continue -{'>'}
