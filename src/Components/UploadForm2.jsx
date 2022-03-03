@@ -7,9 +7,9 @@ import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
-function UploadForm2({ nextStep, prevStep, handleStateChange, values }) {
+function UploadForm2({ nextStep, prevStep }) {
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
-  const [pdfFile, setPdfFile] = useState(values.pdfFile);
+  const [pdfFile, setPdfFile] = useState(null);
 
   const allowedFiles = ['application/pdf'];
   const handleFile = (e) => {
