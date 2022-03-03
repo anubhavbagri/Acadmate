@@ -117,17 +117,6 @@ label {
     flex-direction: column;
 }
 
-
-
-.submit-button,
-.next {
-    float: right;
-}
-
-.previous {
-    float: left;
-}
-
 /* ============================================================= */
 
 /* END - UPLOAD FORM STYLES */
