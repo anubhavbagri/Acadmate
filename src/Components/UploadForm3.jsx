@@ -1,6 +1,8 @@
 import React from 'react';
 
-function UploadForm3(props) {
+function UploadForm3({ prevStep, values }) {
+  const { Branch, Sem, Subject, Type, Year } = values;
+
   return (
     <div className="form-box" id="form-box-confirm">
       <ul className="flex items-baseline space-x-6 pb-6">
@@ -30,22 +32,30 @@ function UploadForm3(props) {
         </div>
       </ul>
       <div>
-        <h6 className="font-medium">Confirm Upload</h6>
-        <hr className="my-3" />
-        <ul id="upload-confirm"></ul>
+        <h6 className="font-medium">Confirm Upload :</h6>
+        <hr className="mt-2 mb-4" />
+
+        <ul class="list-disc pl-8">
+          <li>Branch: {Branch}</li>
+          <li>Semester: {Sem}</li>
+          <li>Subject: {Subject}</li>
+          <li>Type: {Type}</li>
+          <li>Year: {Year}</li>
+        </ul>
+        <br />
         <p className="text-green-700">
           <b>+ Uploaded File</b>
         </p>
       </div>
       <button
         className="button button-primary float-left mt-12 rounded border text-white"
-        onClick={() => props.prevStep()}
+        type="button"
+        onClick={() => prevStep()}
       >
         {'<'}- Go Back{' '}
       </button>
       <button
         className="button button-primary float-right mt-12 rounded border text-white"
-        id="submitUpload"
         name="submit"
       >
         Submit

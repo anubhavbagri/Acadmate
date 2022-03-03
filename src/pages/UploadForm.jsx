@@ -50,7 +50,7 @@ function UploadForm() {
       renderForm = <UploadForm2 prevStep={prevStep} nextStep={nextStep} />;
       break;
     case 3:
-      renderForm = <UploadForm3 prevStep={prevStep} />;
+      renderForm = <UploadForm3 prevStep={prevStep} values={formData} />;
       break;
     default:
       renderForm = <UploadForm1 nextStep={nextStep} />;
