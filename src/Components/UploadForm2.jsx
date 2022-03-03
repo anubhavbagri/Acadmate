@@ -15,19 +15,21 @@ function UploadForm2({ nextStep, prevStep }) {
   const handleFile = (e) => {
     let selectedFile = e.target.files[0];
 
-    if (selectedFile) {
-      if (selectedFile && allowedFiles.includes(selectedFile.type)) {
+    if (selectedFile && allowedFiles.includes(selectedFile.type)) {
+      if (selectedFile.size / 1024 / 1024 > 10) {
+        toast.error('File size exceeds 10 mb');
+        setPdfFile('');
+      } else {
         let reader = new FileReader();
         reader.readAsDataURL(selectedFile);
         reader.onloadend = (e) => {
           setPdfFile(e.target.result);
+          toast.success('Uploaded file successfully');
         };
-      } else {
-        toast.error('Not a valid pdf file');
-        setPdfFile('');
       }
     } else {
-      console.log('please select a PDF');
+      toast.error('Not a valid pdf file');
+      setPdfFile('');
     }
   };
 
@@ -75,7 +77,6 @@ function UploadForm2({ nextStep, prevStep }) {
           <input
             id="file-upload"
             type="file"
-            name="fileUpload"
             onChange={handleFile}
             accept="application/pdf"
             hidden
@@ -101,7 +102,14 @@ function UploadForm2({ nextStep, prevStep }) {
       <button
         id="checkFileButton"
         className="button button-primary float-right mt-12 rounded border text-white"
-        onClick={() => nextStep()}
+        type="button"
+        onClick={() => {
+          if (pdfFile === null) {
+            toast.error('Please select a PDF file');
+          } else {
+            nextStep();
+          }
+        }}
       >
         Continue -{'>'}
       </button>
