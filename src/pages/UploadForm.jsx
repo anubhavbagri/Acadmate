@@ -19,8 +19,6 @@ function UploadForm() {
     downloadUrl: '',
   });
 
-  console.log(formData.downloadUrl, 'downloadUrl');
-
   const nextStep = () => {
     setStep(step + 1);
   };
