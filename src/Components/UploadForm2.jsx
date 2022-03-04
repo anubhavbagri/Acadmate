@@ -7,16 +7,13 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from 'firebase/storage';
-// import { db } from '../utils/firebase-config';
 import { FaCloudUploadAlt } from 'react-icons/fa';
-
 import { Worker, Viewer } from '@react-pdf-viewer/core';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
 function UploadForm2({ nextStep, prevStep, values, handleStateChange }) {
-  const auth = getAuth();
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
   const [pdfFile, setPdfFile] = useState(null);
@@ -53,10 +50,11 @@ function UploadForm2({ nextStep, prevStep, values, handleStateChange }) {
             break;
         }
       },
-      (err) => console.log(err),
+      // A full list of error codes is available at
+      // https://firebase.google.com/docs/storage/web/handle-errors
+      (err) => console.log(err, err.code),
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log(downloadURL);
           setDownloadUrl(downloadURL);
           toast.success('Uploaded file successfully');
         });
@@ -77,8 +75,7 @@ function UploadForm2({ nextStep, prevStep, values, handleStateChange }) {
         reader.readAsDataURL(selectedFile);
         reader.onloadend = (e) => {
           setPdfFile(e.target.result);
-          storePdf(pdfFile);
-          handleStateChange({ downloadUrl });
+          storePdf(selectedFile);
         };
       }
     } else {
@@ -120,10 +117,13 @@ function UploadForm2({ nextStep, prevStep, values, handleStateChange }) {
         <label htmlFor="file-upload">Question Paper (PDF)</label>
       </div>
 
-      {pdfFile !== null ? (
+      {pdfFile !== null || downloadUrl !== '' ? (
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
           <div style={{ height: '750px' }}>
-            <Viewer fileUrl={pdfFile} plugins={[defaultLayoutPluginInstance]} />
+            <Viewer
+              fileUrl={pdfFile ? pdfFile : downloadUrl}
+              plugins={[defaultLayoutPluginInstance]}
+            />
           </div>
         </Worker>
       ) : (
@@ -158,9 +158,12 @@ function UploadForm2({ nextStep, prevStep, values, handleStateChange }) {
         className="button button-primary float-right mt-12 rounded border text-white"
         type="button"
         onClick={() => {
-          if (pdfFile === null) {
+          if (pdfFile === null && downloadUrl === '') {
             toast.error('Please select a PDF file');
           } else {
+            handleStateChange({
+              downloadUrl,
+            });
             nextStep();
           }
         }}
