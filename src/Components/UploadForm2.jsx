@@ -1,15 +1,68 @@
-import { FaCloudUploadAlt } from 'react-icons/fa';
-import { toast } from 'react-toastify';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { getAuth } from 'firebase/auth';
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from 'firebase/storage';
+// import { db } from '../utils/firebase-config';
+import { FaCloudUploadAlt } from 'react-icons/fa';
 
 import { Worker, Viewer } from '@react-pdf-viewer/core';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
-function UploadForm2({ nextStep, prevStep }) {
+function UploadForm2({ nextStep, prevStep, values, handleStateChange }) {
+  const auth = getAuth();
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
+
   const [pdfFile, setPdfFile] = useState(null);
+  const [downloadUrl, setDownloadUrl] = useState(values.downloadUrl);
+
+  const storePdf = async (pdf) => {
+    const storage = getStorage();
+
+    const file = new File(
+      [pdf],
+      `${values.Branch}-${values.Subject}-${values.Type}-${values.Year}.pdf`,
+      { type: 'pdf' }
+    );
+
+    const metadata = {
+      contentType: 'application/pdf',
+    };
+
+    const storageRef = ref(storage, 'questionPapers/' + file.name);
+    const uploadTask = uploadBytesResumable(storageRef, file, metadata);
+
+    uploadTask.on(
+      'state_changed',
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log('Upload is ' + progress + '% done');
+        switch (snapshot.state) {
+          case 'paused':
+            console.log('Upload is paused');
+            break;
+          case 'running':
+            console.log('Upload is running');
+            break;
+        }
+      },
+      (err) => console.log(err),
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log(downloadURL);
+          setDownloadUrl(downloadURL);
+          toast.success('Uploaded file successfully');
+        });
+      }
+    );
+  };
 
   const allowedFiles = ['application/pdf'];
   const handleFile = (e) => {
@@ -17,14 +70,15 @@ function UploadForm2({ nextStep, prevStep }) {
 
     if (selectedFile && allowedFiles.includes(selectedFile.type)) {
       if (selectedFile.size / 1024 / 1024 > 10) {
-        toast.error('File size exceeds 10 mb');
+        toast.error('File size exceeds 10 MB');
         setPdfFile('');
       } else {
         let reader = new FileReader();
         reader.readAsDataURL(selectedFile);
         reader.onloadend = (e) => {
           setPdfFile(e.target.result);
-          toast.success('Uploaded file successfully');
+          storePdf(pdfFile);
+          handleStateChange({ downloadUrl });
         };
       }
     } else {
