@@ -16,7 +16,10 @@ function UploadForm() {
     Subject: 'Select Subject',
     Type: 'Select Type (MTE/ETE)',
     Year: 'Select Year',
+    downloadUrl: '',
   });
+
+  console.log(formData.downloadUrl, 'downloadUrl');
 
   const nextStep = () => {
     setStep(step + 1);
@@ -47,7 +50,14 @@ function UploadForm() {
       );
       break;
     case 2:
-      renderForm = <UploadForm2 prevStep={prevStep} nextStep={nextStep} />;
+      renderForm = (
+        <UploadForm2
+          prevStep={prevStep}
+          nextStep={nextStep}
+          handleStateChange={handleStateChange}
+          values={formData}
+        />
+      );
       break;
     case 3:
       renderForm = <UploadForm3 prevStep={prevStep} values={formData} />;
