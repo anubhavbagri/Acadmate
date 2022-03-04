@@ -1,7 +1,34 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getAuth } from 'firebase/auth';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 
 function UploadForm3({ prevStep, values }) {
+  const navigate = useNavigate();
+  const auth = getAuth();
   const { Branch, Sem, Subject, Type, Year } = values;
+
+  const onSubmit = async () => {
+    try {
+      // Check for user
+      //   const docRef = doc(db, 'users', user.uid);
+      //   const docSnap = await getDoc(docRef);
+
+      const docRef = await addDoc(collection(db, 'questionPapers'), {});
+
+      // If user doesn't exist, create user
+      if (!docSnap.exists()) {
+        await setDoc(doc(db, 'questionPapers', user.uid), {
+          name: user.displayName,
+          email: user.email,
+          timestamp: serverTimestamp(),
+        });
+      }
+      navigate('/profile');
+    } catch (err) {
+      toast.error('Could not authorize with microsoft');
+    }
+  };
 
   return (
     <div className="form-box" id="form-box-confirm">
@@ -35,7 +62,7 @@ function UploadForm3({ prevStep, values }) {
         <h6 className="font-medium">Confirm Upload :</h6>
         <hr className="mt-2 mb-4" />
 
-        <ul class="list-disc pl-8">
+        <ul className="list-disc pl-8">
           <li>Branch: {Branch}</li>
           <li>Semester: {Sem}</li>
           <li>Subject: {Subject}</li>
@@ -56,7 +83,8 @@ function UploadForm3({ prevStep, values }) {
       </button>
       <button
         className="button button-primary float-right mt-12 rounded border text-white"
-        name="submit"
+        type="button"
+        onClick={onSubmit}
       >
         Submit
       </button>
