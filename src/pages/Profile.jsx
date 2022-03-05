@@ -95,45 +95,45 @@ function Profile() {
                   <tbody>
                     {/* <!-- row 1 --> */}
                     <tr className="bg-gray-200 text-sm font-medium whitespace-nowrap">
-                      <td className="py-4 px-6 ">Operating Systems</td>
-                      <td className="py-4 px-6">Information Technology</td>
-                      <td className="py-4 px-6">MTE2</td>
-                      <td className="py-4 px-6">2019</td>
-                      <td className="py-4 px-6 float-right">
+                      <td className="py-3 px-6">Operating Systems</td>
+                      <td className="py-3 px-6">Information Technology</td>
+                      <td className="py-3 px-6">MTE2</td>
+                      <td className="py-3 px-6">2019</td>
+                      <td className="py-3 px-6 float-right">
                         <FaDownload size={15} className="text-blue-600" />
                       </td>
                     </tr>
                     {/* <!-- row 2 --> */}
                     <tr className="text-sm font-medium whitespace-nowrap">
-                      <td className="py-4 px-6 ">
+                      <td className="py-3 px-6 ">
                         Materials Science and Engineering
                       </td>
-                      <td className="py-4 px-6">Mechanical Engineering</td>
-                      <td className="py-4 px-6">MTE1</td>
-                      <td className="py-4 px-6">2018</td>
-                      <td className="py-4 px-6 float-right">
+                      <td className="py-3 px-6">Mechanical Engineering</td>
+                      <td className="py-3 px-6">MTE1</td>
+                      <td className="py-3 px-6">2018</td>
+                      <td className="py-3 px-6 float-right">
                         <FaDownload size={15} className="text-blue-600" />
                       </td>
                     </tr>
                     {/* <!-- Row 3 --> */}
                     <tr className="bg-gray-200 text-sm font-medium whitespace-nowrap">
-                      <td className="py-4 px-6 ">Operating Systems</td>
-                      <td className="py-4 px-6">Information Technology</td>
-                      <td className="py-4 px-6">MTE2</td>
-                      <td className="py-4 px-6">2019</td>
-                      <td className="py-4 px-6 float-right">
+                      <td className="py-3 px-6 ">Operating Systems</td>
+                      <td className="py-3 px-6">Information Technology</td>
+                      <td className="py-3 px-6">MTE2</td>
+                      <td className="py-3 px-6">2019</td>
+                      <td className="py-3 px-6 float-right">
                         <FaDownload size={15} className="text-blue-600" />
                       </td>
                     </tr>
                     {/* <!-- Row 4 --> */}
                     <tr className="text-sm font-medium whitespace-nowrap">
-                      <td className="py-4 px-6 ">
+                      <td className="py-3 px-6 ">
                         Materials Science and Engineering
                       </td>
-                      <td className="py-4 px-6">Mechanical Engineering</td>
-                      <td className="py-4 px-6">MTE1</td>
-                      <td className="py-4 px-6">2018</td>
-                      <td className="py-4 px-6 float-right">
+                      <td className="py-3 px-6">Mechanical Engineering</td>
+                      <td className="py-3 px-6">MTE1</td>
+                      <td className="py-3 px-6">2018</td>
+                      <td className="py-3 px-6 float-right">
                         <FaDownload size={15} className="text-blue-600" />
                       </td>
                     </tr>
