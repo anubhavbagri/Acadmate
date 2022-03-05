@@ -1,11 +1,44 @@
+import { useState, useEffect } from 'react';
 import { getAuth } from 'firebase/auth';
+import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
+import { db } from '../utils/firebase-config';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
-import { FaDownload } from 'react-icons/fa';
+import RowData from '../Components/RowData';
 
 function Profile() {
   const auth = getAuth();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [uploads, setUploads] = useState(null);
+
+  useEffect(() => {
+    const fetchUserUploads = async () => {
+      const UploadsRef = collection(db, 'questionPapers');
+
+      const q = query(
+        UploadsRef,
+        where('userRef', '==', auth.currentUser.uid),
+        orderBy('timestamp', 'desc')
+      );
+
+      const querySnap = await getDocs(q);
+
+      let uploads = [];
+
+      querySnap.forEach((doc) => {
+        return uploads.push({
+          id: doc.id,
+          data: doc.data(),
+        });
+      });
+
+      setUploads(uploads);
+      setLoading(false);
+    };
+
+    fetchUserUploads();
+  }, [auth.currentUser.uid]);
 
   return (
     <>
@@ -56,93 +89,57 @@ function Profile() {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col">
-          <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div className="inline-block py-2 min-w-full sm:px-6 lg:px-8">
-              <div className="overflow-hidden">
-                <table className="min-w-full">
-                  <thead className="border-b border-gray-200">
-                    <tr>
-                      <th
-                        scope="col"
-                        className="pt-3 pb-2 px-6 font-bold text-left"
-                      >
-                        Name
-                      </th>
-                      <th
-                        scope="col"
-                        className="pt-3 pb-2 px-6 font-bold text-left"
-                      >
-                        Branch
-                      </th>
-                      <th
-                        scope="col"
-                        className="pt-3 pb-2 px-6 font-bold text-left"
-                      >
-                        Type
-                      </th>
-                      <th
-                        scope="col"
-                        className="pt-3 pb-2 px-6 font-bold text-left"
-                      >
-                        Year
-                      </th>
-                      <th scope="col">
-                        <span className="sr-only"></span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {/* <!-- row 1 --> */}
-                    <tr className="bg-gray-200 text-sm font-medium whitespace-nowrap">
-                      <td className="py-3 px-6">Operating Systems</td>
-                      <td className="py-3 px-6">Information Technology</td>
-                      <td className="py-3 px-6">MTE2</td>
-                      <td className="py-3 px-6">2019</td>
-                      <td className="py-3 px-6 float-right">
-                        <FaDownload size={15} className="text-blue-600" />
-                      </td>
-                    </tr>
-                    {/* <!-- row 2 --> */}
-                    <tr className="text-sm font-medium whitespace-nowrap">
-                      <td className="py-3 px-6 ">
-                        Materials Science and Engineering
-                      </td>
-                      <td className="py-3 px-6">Mechanical Engineering</td>
-                      <td className="py-3 px-6">MTE1</td>
-                      <td className="py-3 px-6">2018</td>
-                      <td className="py-3 px-6 float-right">
-                        <FaDownload size={15} className="text-blue-600" />
-                      </td>
-                    </tr>
-                    {/* <!-- Row 3 --> */}
-                    <tr className="bg-gray-200 text-sm font-medium whitespace-nowrap">
-                      <td className="py-3 px-6 ">Operating Systems</td>
-                      <td className="py-3 px-6">Information Technology</td>
-                      <td className="py-3 px-6">MTE2</td>
-                      <td className="py-3 px-6">2019</td>
-                      <td className="py-3 px-6 float-right">
-                        <FaDownload size={15} className="text-blue-600" />
-                      </td>
-                    </tr>
-                    {/* <!-- Row 4 --> */}
-                    <tr className="text-sm font-medium whitespace-nowrap">
-                      <td className="py-3 px-6 ">
-                        Materials Science and Engineering
-                      </td>
-                      <td className="py-3 px-6">Mechanical Engineering</td>
-                      <td className="py-3 px-6">MTE1</td>
-                      <td className="py-3 px-6">2018</td>
-                      <td className="py-3 px-6 float-right">
-                        <FaDownload size={15} className="text-blue-600" />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+        {uploads?.length > 0 ? (
+          <div className="flex flex-col">
+            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div className="inline-block py-2 min-w-full sm:px-6 lg:px-8">
+                <div className="overflow-hidden">
+                  <table className="min-w-full">
+                    <thead className="border-b border-gray-200">
+                      <tr>
+                        <th
+                          scope="col"
+                          className="pt-3 pb-2 px-6 font-bold text-left"
+                        >
+                          Name
+                        </th>
+                        <th
+                          scope="col"
+                          className="pt-3 pb-2 px-6 font-bold text-left"
+                        >
+                          Branch
+                        </th>
+                        <th
+                          scope="col"
+                          className="pt-3 pb-2 px-6 font-bold text-left"
+                        >
+                          Type
+                        </th>
+                        <th
+                          scope="col"
+                          className="pt-3 pb-2 px-6 font-bold text-left"
+                        >
+                          Year
+                        </th>
+                        <th scope="col">
+                          <span className="sr-only"></span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {!loading &&
+                        uploads.map((upload) => (
+                          <RowData key={upload.id} upload={upload.data} />
+                        ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <p>Huh? Seems like you haven't uploaded anything!</p>
+        )}
       </div>
     </>
   );
