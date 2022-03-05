@@ -1,7 +1,7 @@
-import { db } from '../utils/firebase-config';
 import { getAuth } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
+import { FaDownload } from 'react-icons/fa';
 
 function Profile() {
   const auth = getAuth();
@@ -14,9 +14,9 @@ function Profile() {
         <div className="flex justify-between flex-col lg:flex-row">
           <div>
             <h4 className="text-2xl font-bold mb-1">
-              {auth.currentUser.displayName}
+              Hey! {auth.currentUser.displayName}
             </h4>
-            <p>All the material uploaded by you.</p>
+            <p>Thank you for uploading the following material!</p>
           </div>
           <div>
             <button
@@ -40,7 +40,7 @@ function Profile() {
             <li className="mr-2">
               <a
                 href="#"
-                className="inline-block pt-4 pb-2 px-4 font-medium text-center text-blue-600  rounded-t-lg border-b-2 border-blue-600 "
+                className="inline-block pt-4 pb-2 px-4 font-medium text-center text-blue-600 rounded-t-lg border-b-2 border-blue-600 "
               >
                 Question Papers
               </a>
@@ -55,6 +55,93 @@ function Profile() {
               </a>
             </li>
           </ul>
+        </div>
+        <div className="flex flex-col">
+          <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div className="inline-block py-2 min-w-full sm:px-6 lg:px-8">
+              <div className="overflow-hidden">
+                <table className="min-w-full">
+                  <thead className="border-b border-gray-200">
+                    <tr>
+                      <th
+                        scope="col"
+                        className="pt-3 pb-2 px-6 font-bold text-left"
+                      >
+                        Name
+                      </th>
+                      <th
+                        scope="col"
+                        className="pt-3 pb-2 px-6 font-bold text-left"
+                      >
+                        Branch
+                      </th>
+                      <th
+                        scope="col"
+                        className="pt-3 pb-2 px-6 font-bold text-left"
+                      >
+                        Type
+                      </th>
+                      <th
+                        scope="col"
+                        className="pt-3 pb-2 px-6 font-bold text-left"
+                      >
+                        Year
+                      </th>
+                      <th scope="col">
+                        <span className="sr-only"></span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {/* <!-- row 1 --> */}
+                    <tr className="bg-gray-200 text-sm font-medium whitespace-nowrap">
+                      <td className="py-4 px-6 ">Operating Systems</td>
+                      <td className="py-4 px-6">Information Technology</td>
+                      <td className="py-4 px-6">MTE2</td>
+                      <td className="py-4 px-6">2019</td>
+                      <td className="py-4 px-6 float-right">
+                        <FaDownload size={15} className="text-blue-600" />
+                      </td>
+                    </tr>
+                    {/* <!-- row 2 --> */}
+                    <tr className="text-sm font-medium whitespace-nowrap">
+                      <td className="py-4 px-6 ">
+                        Materials Science and Engineering
+                      </td>
+                      <td className="py-4 px-6">Mechanical Engineering</td>
+                      <td className="py-4 px-6">MTE1</td>
+                      <td className="py-4 px-6">2018</td>
+                      <td className="py-4 px-6 float-right">
+                        <FaDownload size={15} className="text-blue-600" />
+                      </td>
+                    </tr>
+                    {/* <!-- Row 3 --> */}
+                    <tr className="bg-gray-200 text-sm font-medium whitespace-nowrap">
+                      <td className="py-4 px-6 ">Operating Systems</td>
+                      <td className="py-4 px-6">Information Technology</td>
+                      <td className="py-4 px-6">MTE2</td>
+                      <td className="py-4 px-6">2019</td>
+                      <td className="py-4 px-6 float-right">
+                        <FaDownload size={15} className="text-blue-600" />
+                      </td>
+                    </tr>
+                    {/* <!-- Row 4 --> */}
+                    <tr className="text-sm font-medium whitespace-nowrap">
+                      <td className="py-4 px-6 ">
+                        Materials Science and Engineering
+                      </td>
+                      <td className="py-4 px-6">Mechanical Engineering</td>
+                      <td className="py-4 px-6">MTE1</td>
+                      <td className="py-4 px-6">2018</td>
+                      <td className="py-4 px-6 float-right">
+                        <FaDownload size={15} className="text-blue-600" />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
