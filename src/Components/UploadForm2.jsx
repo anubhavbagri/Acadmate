@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { getAuth } from 'firebase/auth';
 import {
   getStorage,
   ref,
@@ -18,6 +17,7 @@ function UploadForm2({ nextStep, prevStep, values, handleStateChange }) {
 
   const [pdfFile, setPdfFile] = useState(null);
   const [downloadUrl, setDownloadUrl] = useState(values.downloadUrl);
+  const [loading, setLoading] = useState(true);
 
   const storePdf = async (pdf) => {
     const storage = getStorage();
@@ -57,6 +57,7 @@ function UploadForm2({ nextStep, prevStep, values, handleStateChange }) {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setDownloadUrl(downloadURL);
           toast.success('Uploaded file successfully');
+          setLoading(false);
         });
       }
     );
@@ -153,23 +154,27 @@ function UploadForm2({ nextStep, prevStep, values, handleStateChange }) {
         </div>
       )}
 
-      <button
-        id="checkFileButton"
-        className="button button-primary float-right mt-12 rounded border text-white"
-        type="button"
-        onClick={() => {
-          if (pdfFile === null && downloadUrl === '') {
-            toast.error('Please select a PDF file');
-          } else {
-            handleStateChange({
-              downloadUrl,
-            });
-            nextStep();
-          }
-        }}
-      >
-        Continue -{'>'}
-      </button>
+      {loading ? (
+        <div></div>
+      ) : (
+        <button
+          id="checkFileButton"
+          className="button button-primary float-right mt-12 rounded border text-white"
+          type="button"
+          onClick={() => {
+            if (pdfFile === null && downloadUrl === '') {
+              toast.error('Please select a PDF file');
+            } else {
+              handleStateChange({
+                downloadUrl,
+              });
+              nextStep();
+            }
+          }}
+        >
+          Continue -{'>'}
+        </button>
+      )}
       <button
         className="button button-primary float-left mt-12 rounded border text-white"
         onClick={() => prevStep()}
