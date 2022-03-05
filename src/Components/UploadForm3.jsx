@@ -1,32 +1,31 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAuth } from 'firebase/auth';
+import { toast } from 'react-toastify';
+import { db } from '../utils/firebase-config';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 
 function UploadForm3({ prevStep, values }) {
   const navigate = useNavigate();
   const auth = getAuth();
-  const { Branch, Sem, Subject, Type, Year } = values;
+  const { Branch, Sem, Subject, Type, Year, downloadUrl } = values;
 
   const onSubmit = async () => {
     try {
-      // Check for user
-      //   const docRef = doc(db, 'users', user.uid);
-      //   const docSnap = await getDoc(docRef);
-
-      const docRef = await addDoc(collection(db, 'questionPapers'), {});
-
-      // If user doesn't exist, create user
-      if (!docSnap.exists()) {
-        await setDoc(doc(db, 'questionPapers', user.uid), {
-          name: user.displayName,
-          email: user.email,
-          timestamp: serverTimestamp(),
-        });
-      }
+      const docRef = await addDoc(collection(db, 'questionPapers'), {
+        Branch,
+        Semester: Sem,
+        Subject,
+        Type,
+        Year,
+        downloadUrl,
+        userRef: auth.currentUser.uid,
+        timestamp: serverTimestamp(),
+      });
+      toast.success('Submitted details successfully');
       navigate('/profile');
     } catch (err) {
-      toast.error('Could not authorize with microsoft');
+      console.log(err);
     }
   };
 
