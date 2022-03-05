@@ -11,7 +11,7 @@ function Footer() {
               Acadmate<span className="text-blue-600">.</span>
             </p>
             <p className="mt-4 text-sm text-center text-gray-500 font-medium sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:mt-0">
-              © 2021 Acadmate - All rights reserved.{' '}
+              © 2022 Acadmate - All rights reserved.{' '}
             </p>
           </div>
           <span className="inline-flex justify-center mt-4 space-x-5 text-sm sm:justify-start text-gray-500 sm:ml-4 sm:pl-4 sm:mt-0">
