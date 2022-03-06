@@ -15,6 +15,7 @@ import UploadForm from './pages/UploadForm';
 import DownloadForm from './pages/DownloadForm';
 import Profile from './pages/Profile';
 import NotFound from './pages/NotFound';
+import DownloadQP from './pages/DownloadQP';
 
 function App() {
   const location = useLocation();
@@ -58,6 +59,9 @@ function App() {
         </Route>
         <Route path="/download" element={<PrivateRoute />}>
           <Route exact path="/download" element={<DownloadForm />} />
+        </Route>
+        <Route path="/downloadQP" element={<PrivateRoute />}>
+          <Route exact path="/downloadQP" element={<DownloadQP />} />
         </Route>
         <Route path="/*" element={<NotFound />} />
       </Routes>
