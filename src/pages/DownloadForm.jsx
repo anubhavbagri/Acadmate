@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { db } from '../utils/firebase-config';
 import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Navbar from '../Components/Navbar';
 import { Schema } from '../data/Schema';
@@ -11,10 +11,11 @@ import '../css/styles.css';
 
 function DownloadForm() {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const [Branch, setBranch] = useState('');
-  const [Sem, setSem] = useState('');
-  const [Subject, setSubject] = useState('');
+  const [Branch, setBranch] = useState(location?.state?.Branch);
+  const [Sem, setSem] = useState(location?.state?.Semester);
+  const [Subject, setSubject] = useState(location?.state?.Subject);
   const [subjectsArr, setSubjectsArr] = useState([]);
 
   const isMounted = useRef(true);
@@ -114,7 +115,7 @@ function DownloadForm() {
                   }}
                 >
                   <option value="DEFAULT" disabled hidden>
-                    Select Branch
+                    {Branch ? Branch : 'Select Branch'}
                   </option>
                   {Schema.branches.map((e, key) => (
                     <option key={key} value={e.Value}>
@@ -141,7 +142,7 @@ function DownloadForm() {
                   }}
                 >
                   <option value="DEFAULT" hidden disabled>
-                    Select Semester
+                    {Sem ? Sem : 'Select Semester'}
                   </option>
                   <option value="III">III</option>
                   <option value="IV">IV</option>
@@ -167,7 +168,7 @@ function DownloadForm() {
                   }}
                 >
                   <option value="DEFAULT" disabled hidden>
-                    Select Subject
+                    {Subject ? Subject : 'Select Subject'}
                   </option>
                   {subjectsArr.map((e, key) => (
                     <option key={key} value={e.Value}>

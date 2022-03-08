@@ -1,9 +1,10 @@
-import { useLocation, Navigate } from 'react-router-dom';
+import { useLocation, useNavigate, Navigate } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 import DownloadQpRowData from '../Components/DownloadQpRowData';
 
 function DownloadQP() {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const Branch = location?.state?.Branch;
   const Sub = location?.state?.Subject;
@@ -40,7 +41,15 @@ function DownloadQP() {
           <div>
             <button
               className="button button-primary float-right rounded border text-white mx-0 lg:mx-2"
-              onClick={() => {}}
+              onClick={() => {
+                navigate('/download', {
+                  state: {
+                    Branch: Branch,
+                    Semester: Sem,
+                    Subject: Sub,
+                  },
+                });
+              }}
             >
               edit details
             </button>
