@@ -66,7 +66,7 @@ function App() {
         <Route path="/*" element={<NotFound />} />
       </Routes>
 
-      <ToastContainer bodyClassName="toastBody" />
+      <ToastContainer bodyClassName="toastBody" autoClose={3000} />
     </>
   );
 }
