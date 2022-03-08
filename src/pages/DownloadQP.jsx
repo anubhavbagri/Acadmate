@@ -1,53 +1,17 @@
-import { useState, useEffect } from 'react';
-import { db } from '../utils/firebase-config';
-import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Navigate } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 import DownloadQpRowData from '../Components/DownloadQpRowData';
-import Spinner from '../Components/Spinner';
 
 function DownloadQP() {
   const location = useLocation();
 
-  const Branch = location.state.Branch;
-  const Sub = location.state.Subject;
-  const Sem = location.state.Semester;
+  const Branch = location?.state?.Branch;
+  const Sub = location?.state?.Subject;
+  const Sem = location?.state?.Semester;
+  const qp = location?.state?.qp;
 
-  const [loading, setLoading] = useState(true);
-  const [uploads, setUploads] = useState(null);
-
-  useEffect(() => {
-    const fetchSelectedUploads = async () => {
-      const UploadsRef = collection(db, 'questionPapers');
-
-      const q = query(
-        UploadsRef,
-        where('Branch', '==', Branch),
-        where('Semester', '==', Sem),
-        where('Subject', '==', Sub),
-        orderBy('timestamp', 'desc')
-      );
-
-      const querySnap = await getDocs(q);
-
-      let uploads = [];
-
-      querySnap.forEach((doc) => {
-        return uploads.push({
-          id: doc.id,
-          data: doc.data(),
-        });
-      });
-
-      setUploads(uploads);
-      setLoading(false);
-    };
-
-    fetchSelectedUploads();
-  }, [Branch, Sem, Sub]);
-
-  if (loading) {
-    return <Spinner />;
+  if (!Branch || !Sub || !Sem || !qp) {
+    return <Navigate to="/download" replace={true} />;
   }
 
   return (
@@ -105,7 +69,7 @@ function DownloadQP() {
             </li>
           </ul>
         </div>
-        {uploads?.length > 0 && (
+        {qp?.length > 0 && (
           <div className="flex flex-col">
             <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="inline-block py-2 min-w-full sm:px-6 lg:px-8">
@@ -143,14 +107,13 @@ function DownloadQP() {
                       </tr>
                     </thead>
                     <tbody>
-                      {!loading &&
-                        uploads.map((upload, indx) => (
-                          <DownloadQpRowData
-                            key={upload.id}
-                            upload={upload.data}
-                            index={indx}
-                          />
-                        ))}
+                      {qp.map((item, indx) => (
+                        <DownloadQpRowData
+                          key={item.id}
+                          singleQp={item.data}
+                          index={indx}
+                        />
+                      ))}
                     </tbody>
                   </table>
                 </div>
