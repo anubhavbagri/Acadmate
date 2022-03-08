@@ -1,5 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import { db } from '../utils/firebase-config';
+import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Navbar from '../Components/Navbar';
 import { Schema } from '../data/Schema';
 import DownloadImg from '../assets/download-01.png';
@@ -14,29 +17,62 @@ function DownloadForm() {
   const [Subject, setSubject] = useState('');
   const [subjectsArr, setSubjectsArr] = useState([]);
 
+  const isMounted = useRef(true);
+
   useEffect(() => {
-    if (Branch && Sem) {
-      const index = Schema.branches.findIndex((branch) => {
-        return branch.Value === Branch;
-      });
+    if (isMounted) {
+      if (Branch && Sem) {
+        const index = Schema.branches.findIndex((branch) => {
+          return branch.Value === Branch;
+        });
 
-      const semIndex = Schema.branches[index].sems.findIndex((sem) => {
-        return sem.semno.toString() === Sem.toString();
-      });
+        const semIndex = Schema.branches[index].sems.findIndex((sem) => {
+          return sem.semno.toString() === Sem.toString();
+        });
 
-      const subjectsArr = Schema.branches[index].sems[semIndex].subjects;
-      setSubjectsArr(subjectsArr);
+        const subjectsArr = Schema.branches[index].sems[semIndex].subjects;
+        setSubjectsArr(subjectsArr);
+      }
     }
-  }, [Branch, Sem]);
+    return () => {
+      isMounted.current = false;
+    };
+  }, [Branch, Sem, isMounted]);
 
-  const handleSubmit = () => {
-    navigate('/downloadQP', {
-      state: {
-        Branch: Branch,
-        Semester: Sem,
-        Subject: Subject,
-      },
+  const handleSubmit = async () => {
+    const QpRef = collection(db, 'questionPapers');
+
+    const q = query(
+      QpRef,
+      where('Branch', '==', Branch),
+      where('Semester', '==', Sem),
+      where('Subject', '==', Subject),
+      orderBy('timestamp', 'desc')
+    );
+
+    const querySnap = await getDocs(q);
+
+    let questionPapers = [];
+
+    querySnap.forEach((doc) => {
+      return questionPapers.push({
+        id: doc.id,
+        data: doc.data(),
+      });
     });
+
+    if (questionPapers.length > 0) {
+      navigate('/downloadQP', {
+        state: {
+          Branch: Branch,
+          Semester: Sem,
+          Subject: Subject,
+          qp: questionPapers,
+        },
+      });
+    } else {
+      toast.error("Question papers for your selection isn't available!");
+    }
   };
 
   return (
