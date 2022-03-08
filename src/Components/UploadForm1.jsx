@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { db } from '../utils/firebase-config';
+import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
 import { Schema } from '../data/Schema';
 import { toast } from 'react-toastify';
 
@@ -26,7 +28,7 @@ function UploadForm1({ nextStep, handleStateChange, values }) {
     }
   }, [Branch, Sem]);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (
       Branch === 'Select Branch' ||
       Sem === 'Select Semester' ||
@@ -36,8 +38,35 @@ function UploadForm1({ nextStep, handleStateChange, values }) {
     ) {
       toast.error('Please select all fields');
     } else {
-      nextStep();
-      handleStateChange({ Branch, Sem, Subject, Type, Year });
+      const QpRef = collection(db, 'questionPapers');
+
+      const q = query(
+        QpRef,
+        where('Branch', '==', Branch),
+        where('Semester', '==', Sem),
+        where('Subject', '==', Subject),
+        where('Type', '==', Type),
+        where('Year', '==', Year),
+        orderBy('timestamp', 'desc')
+      );
+
+      const querySnap = await getDocs(q);
+
+      let questionPapers = [];
+
+      querySnap.forEach((doc) => {
+        return questionPapers.push({
+          id: doc.id,
+          data: doc.data(),
+        });
+      });
+
+      if (questionPapers.length > 0) {
+        toast.error('This question paper already exists!');
+      } else {
+        nextStep();
+        handleStateChange({ Branch, Sem, Subject, Type, Year });
+      }
     }
   };
 
