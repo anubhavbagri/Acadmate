@@ -69,8 +69,7 @@ function DownloadQP() {
             </li>
             <li className="mr-2">
               <a
-                href="#"
-                className="inline-block pt-4 pb-2 px-4 font-medium text-center text-gray-500 rounded-t-lg border-b-2 border-transparent  hover:border-gray-300 active"
+                className="inline-block pt-4 pb-2 px-4 font-medium text-center text-gray-500 rounded-t-lg border-b-2 border-transparent  hover:border-gray-300 active cursor-pointer"
                 aria-current="page"
               >
                 Books
