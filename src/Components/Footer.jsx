@@ -11,11 +11,15 @@ function Footer() {
               Acadmate<span className="text-blue-600">.</span>
             </p>
             <p className="mt-4 text-sm text-center text-gray-500 font-medium sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:mt-0">
-              © 2022 Acadmate - All rights reserved.{' '}
+              © 2022 Acadmate - Only for MUJ.{' '}
             </p>
           </div>
           <span className="inline-flex justify-center mt-4 space-x-5 text-sm sm:justify-start text-gray-500 sm:ml-4 sm:pl-4 sm:mt-0">
-            Made with &#10084; for MUJ.
+            Made with &#10084; by&nbsp;
+            <a target="_blank" href="https://www.linkedin.com/in/anubhavbagri/">
+              Anubhav
+            </a>
+            .
           </span>
         </div>
       </div>
