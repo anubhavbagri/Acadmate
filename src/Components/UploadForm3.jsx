@@ -12,7 +12,7 @@ function UploadForm3({ prevStep, values }) {
 
   const onSubmit = async () => {
     try {
-      const docRef = await addDoc(collection(db, 'questionPapers'), {
+      await addDoc(collection(db, 'questionPapers'), {
         Branch,
         Semester: Sem,
         Subject,
