@@ -151,7 +151,7 @@ label {
 }
 
 @media (max-width: 900px) {
-    .navbar {
+    /* .navbar {
         width: 100vw;
         padding: 0;
     }
@@ -163,14 +163,7 @@ label {
 
     .navbar-brand {
         margin: 0;
-    }
-
-    .container-fluid {
-        margin: 0;
-        padding: 0;
-        background-color: var(--gray50);
-        padding: 1rem 1.25rem;
-    }
+    } */
 
     /* images */
     .layout .image {

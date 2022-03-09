@@ -20,7 +20,7 @@ function Navbar() {
 
   return (
     <nav className="bg-transparent fixed w-full z-10 md:px-4 md:py-2.5">
-      <div className="container-fluid flex flex-wrap justify-between items-center mx-auto">
+      <div className="flex flex-wrap justify-between items-center mx-auto">
         <a className="flex">
           <span className="self-center text-xl font-bold whitespace-nowrap">
             Acadmate
