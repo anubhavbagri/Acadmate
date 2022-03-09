@@ -40,7 +40,7 @@ function DownloadQP() {
           </div>
           <div>
             <button
-              className="button button-primary float-right rounded border text-white mx-0 lg:mx-2"
+              className="button button-primary lg:float-right rounded border text-white mx-0 lg:mx-2 mt-4"
               onClick={() => {
                 navigate('/download', {
                   state: {
@@ -56,7 +56,7 @@ function DownloadQP() {
           </div>
         </div>
       </div>
-      <div className="container px-32">
+      <div className="lg:container lg:px-32">
         <div className="border-b border-gray-300">
           <ul className="flex flex-wrap -mb-px">
             <li className="mr-2">
@@ -110,7 +110,7 @@ function DownloadQP() {
                           Year
                         </th>
                         <th scope="col">
-                          <span className="sr-only"></span>
+                          <span className="sr-only">Save</span>
                         </th>
                       </tr>
                     </thead>

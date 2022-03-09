@@ -46,7 +46,7 @@ function Profile() {
       <div className="px-5 pb-8 pt-32 md:px-32 md:pb-16">
         <div className="flex justify-between flex-col lg:flex-row">
           <div>
-            <h4 className="text-lg md:text-2xl font-bold mb-1">
+            <h4 className="text-xl md:text-2xl font-bold mb-1">
               Hey! {auth.currentUser.displayName}
             </h4>
             <p className="text-sm md:text-base">
@@ -123,7 +123,7 @@ function Profile() {
                           Year
                         </th>
                         <th scope="col">
-                          <span className="sr-only"></span>
+                          <span className="sr-only">Download</span>
                         </th>
                       </tr>
                     </thead>
