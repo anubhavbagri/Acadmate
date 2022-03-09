@@ -43,7 +43,7 @@ function Profile() {
   return (
     <>
       <Navbar />
-      <div className="px-5 pb-8 pt-32 md:px-32 md:pb-16">
+      <div className="pl-5 pb-8 pt-32 md:px-32 md:pb-16">
         <div className="flex justify-between flex-col lg:flex-row">
           <div>
             <h4 className="text-xl md:text-2xl font-bold mb-1">

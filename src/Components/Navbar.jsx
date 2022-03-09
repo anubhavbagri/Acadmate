@@ -19,7 +19,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-transparent fixed w-full z-10 px-4 py-2.5">
+    <nav className="bg-transparent fixed z-10 px-4 py-2.5 w-screen">
       <div className="flex flex-wrap justify-between items-center mx-auto">
         <a className="flex">
           <span className="self-center text-xl font-bold whitespace-nowrap">
@@ -31,7 +31,10 @@ function Navbar() {
             <Menu as="div" className="relative inline-block text-left">
               <div>
                 <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-gray-700 focus:outline-none ">
-                  {auth.currentUser.displayName}
+                  {auth.currentUser.displayName.substring(
+                    0,
+                    auth.currentUser.displayName.indexOf(' ')
+                  )}
                   <ChevronDownIcon
                     className="-mr-1 ml-2 h-6 w-6"
                     aria-hidden="true"
