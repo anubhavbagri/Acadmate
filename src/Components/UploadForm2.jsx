@@ -102,7 +102,7 @@ function UploadForm2({ nextStep, prevStep, values, handleStateChange }) {
               2
             </a>
           </li>
-          <p className="text-bold">Upload File</p>
+          <p className="font-semibold">Upload File</p>
         </div>
         <div className="flex">
           <li className="page-item">
@@ -144,7 +144,7 @@ function UploadForm2({ nextStep, prevStep, values, handleStateChange }) {
             <div id="content">
               <FaCloudUploadAlt size={40} color="#CAD4E0" />
               <div className="text-center">
-                <p className="text-bold">Click to upload</p>
+                <p className="font-semibold">Click to upload</p>
                 <p className="text-gray-500">
                   Upload .pdf files less than 10 MB
                 </p>

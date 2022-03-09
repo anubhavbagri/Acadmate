@@ -54,7 +54,7 @@ function UploadForm3({ prevStep, values }) {
               3
             </a>
           </li>
-          <p className="text-bold">Confirm and Publish</p>
+          <p className="font-semibold">Confirm and Publish</p>
         </div>
       </ul>
       <div>

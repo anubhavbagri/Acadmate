@@ -79,7 +79,7 @@ function UploadForm1({ nextStep, handleStateChange, values }) {
               1
             </a>
           </li>
-          <p className="text-bold">Enter Details</p>
+          <p className="font-semibold">Enter Details</p>
         </div>
         <div className="flex">
           <li className="page-item">

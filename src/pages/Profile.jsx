@@ -43,31 +43,33 @@ function Profile() {
   return (
     <>
       <Navbar />
-      <div className="dashboard-header">
+      <div className="px-5 pb-8 pt-32 md:px-32 md:pb-16">
         <div className="flex justify-between flex-col lg:flex-row">
           <div>
-            <h4 className="text-2xl font-bold mb-1">
+            <h4 className="text-lg md:text-2xl font-bold mb-1">
               Hey! {auth.currentUser.displayName}
             </h4>
-            <p>Thank you for uploading the following material!</p>
+            <p className="text-sm md:text-base">
+              Thank you for uploading the following material!
+            </p>
           </div>
           <div>
             <button
-              className="button button-primary float-right rounded border text-white mx-0 lg:mx-2"
-              onClick={() => navigate('/download')}
-            >
-              download
-            </button>
-            <button
-              className="button button-primary float-right rounded border text-white"
+              className="button button-primary lg:float-right rounded border text-white mr-2 lg:mr-0 "
               onClick={() => navigate('/upload')}
             >
               upload
             </button>
+            <button
+              className="button button-primary mt-4 lg:mt-0 lg:float-right rounded border text-white mx-0 lg:mx-2"
+              onClick={() => navigate('/download')}
+            >
+              download
+            </button>
           </div>
         </div>
       </div>
-      <div className="container px-32">
+      <div className="lg:container lg:px-32">
         <div className="border-b border-gray-300">
           <ul className="flex flex-wrap -mb-px">
             <li className="mr-2">

@@ -18,7 +18,7 @@ function DownloadQP() {
   return (
     <>
       <Navbar />
-      <div className="dashboard-header">
+      <div className="px-5 pb-8 pt-32 md:px-32 md:pb-16">
         <div className="flex justify-between flex-col lg:flex-row">
           <div>
             <h4 className="text-2xl font-bold">Download Question Papers</h4>
