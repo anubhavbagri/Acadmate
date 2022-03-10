@@ -50,7 +50,9 @@ function Profile() {
               Hey! {auth.currentUser.displayName}
             </h4>
             <p className="text-sm md:text-base">
-              Thank you for uploading the following material!
+              {uploads?.length > 0
+                ? 'Thank you for uploading the following material!'
+                : "You haven't uploaded any material!"}
             </p>
           </div>
           <div>
@@ -95,7 +97,7 @@ function Profile() {
             <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="inline-block py-2 min-w-full sm:px-6 lg:px-8">
                 <div className="overflow-hidden">
-                  <table className="min-w-full">
+                  <table className="w-screen lg:min-w-full">
                     <thead className="border-b border-gray-200">
                       <tr>
                         <th
